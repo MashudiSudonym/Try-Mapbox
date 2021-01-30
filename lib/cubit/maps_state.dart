@@ -5,8 +5,14 @@ abstract class MapsState {}
 
 class MapsInitial extends MapsState {}
 
-class MapsLoad extends MapsState {
+class MapsInit extends MapsState {
   final MapboxMapController mapController;
 
-  MapsLoad(this.mapController);
+  MapsInit(this.mapController);
+}
+
+class LocationPermissionStatus extends MapsState {
+  final String message;
+
+  LocationPermissionStatus(this.message);
 }
