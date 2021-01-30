@@ -20,7 +20,6 @@ class MapsCubit extends Cubit<MapsState> {
     emit(MapsInit(_mapController));
 
     getCurrentLocation();
-    _addExampleMarker();
   }
 
   Future<void> getCurrentLocation() async {
@@ -34,6 +33,7 @@ class MapsCubit extends Cubit<MapsState> {
       _logger.e(e);
     });
 
+    _addExampleMarker();
     _myPosition();
   }
 
@@ -92,11 +92,11 @@ class MapsCubit extends Cubit<MapsState> {
   }
 
   Future<void> _addExampleMarker() async {
-    _mapController.addSymbol(
+    await _mapController.addSymbol(
       SymbolOptions(
         geometry: LatLng(
-          -6.634757521999479,
-          110.71668007267021,
+          -6.591500981979604,
+          110.66710503884575,
         ),
         iconImage: 'assets/custom-icon.png',
         iconSize: 2,
