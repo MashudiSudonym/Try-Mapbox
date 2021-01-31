@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:logger/logger.dart';
@@ -17,9 +19,10 @@ class MapsCubit extends Cubit<MapsState> {
   void initMapController(MapboxMapController mapController) {
     this._mapController = mapController;
 
-    emit(MapsInit(_mapController));
-
+    // detect location permission, and get gps location to setup camera position before set maps controller
     getCurrentLocation();
+
+    emit(MapsInit(_mapController));
   }
 
   Future<void> getCurrentLocation() async {

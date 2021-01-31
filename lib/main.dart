@@ -66,7 +66,7 @@ class MyHomePage extends StatelessWidget {
               onMapCreated: (MapboxMapController controller) {
                 context.read<MapsCubit>().initMapController(controller);
               },
-              styleString: MapboxStyles.OUTDOORS,
+              styleString: MapboxStyles.LIGHT,
               myLocationEnabled: true,
               onStyleLoadedCallback: onStyleLoadedCallback,
             );
